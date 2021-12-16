@@ -1,5 +1,5 @@
 # Growing-Simulation
-Simulate growing in a game
+Simulate growing in a game.
 Is a part of the homework of Creative Technology 21FA assignment 2 in ArtCenter MDP.
 
 
