@@ -14,8 +14,7 @@ public class GameOfPlants : MonoBehaviour
 
     public TerrainFormer Terrain;
 
-    //public static class PlantParameters
-    //{
+    //public number of Life span
     public int SeedlingTime = 5;
 
     public int MaturingTime = 8;
@@ -24,6 +23,7 @@ public class GameOfPlants : MonoBehaviour
 
     public int DeadTime = 4;
 
+    //
     //}
     //public PlantParameters LiveParameters;
     //for random at BEGINNING
@@ -69,8 +69,8 @@ public class GameOfPlants : MonoBehaviour
             numAlive();
             round++;
 
-            //Protect first seed not die in 10 round
-            if (round > 10)
+            //Protect first seed not die in 15 round
+            if (round > 15)
             {
                 RandomDeadWaker();
             }
@@ -125,6 +125,14 @@ public class GameOfPlants : MonoBehaviour
     //giving data
     void CellData()
     {
+        Level.ParameterCulculator();
+
+        //SeedlingTime = Level.T0;
+        MaturingTime = Level.T1;
+        ReproducingTime = Level.T2;
+        float CrowdFactor = Level.CrowdFactor;
+        NearbyRadius = Level.NearbyRadius;
+        float WaterResistFactor = Level.WaterResistFactor;
         for (int y = 0; y < SCR_Height; y++)
         {
             for (int x = 0; x < SCR_Width; x++)
@@ -133,6 +141,8 @@ public class GameOfPlants : MonoBehaviour
                 grid[x, y].T1 = MaturingTime;
                 grid[x, y].T2 = ReproducingTime;
                 grid[x, y].T3 = DeadTime;
+                grid[x, y].CrowdFactor = CrowdFactor;
+                grid[x, y].WaterResistFactor = WaterResistFactor;
                 CrowdRadius (x, y);
                 SeedRadius (x, y);
             }

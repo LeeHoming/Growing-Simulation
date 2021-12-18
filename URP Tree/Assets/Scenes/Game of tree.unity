@@ -293,15 +293,14 @@ RectTransform:
   m_GameObject: {fileID: 298949251}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1250089272}
+  m_LocalScale: {x: 1.27, y: 1, z: 1}
+  m_Children: []
   m_Father: {fileID: 1319371729}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -810, y: 429}
+  m_AnchoredPosition: {x: -794.11, y: 429}
   m_SizeDelta: {x: 232, y: 149}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &298949253
@@ -5881,6 +5880,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SkillPanel: {fileID: 5152338653874837058}
   GOP: {fileID: 0}
+  T0: 0
+  T1: 0
+  T2: 0
+  NearbyRadiusMin: 2.5
+  CrowdFactor: 0
+  NearbyRadius: 0
+  WaterResistFactor: 0
 --- !u!114 &752291016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5888,7 +5894,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 752291010}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e66a8f7802af1ea419aa4b98e7cef82e, type: 3}
   m_Name: 
@@ -6004,16 +6010,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1250089271}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 298949252}
-  m_RootOrder: 0
+  m_Father: {fileID: 1319371729}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 164.16, y: -153.48}
+  m_AnchoredPosition: {x: 193, y: -182}
   m_SizeDelta: {x: 304.1, y: 248.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1250089273
@@ -6055,8 +6061,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 2fccf70ac02d0ec47a38d5eaa4eb5ea6, type: 3}
-    m_FontSize: 35
+    m_Font: {fileID: 12800000, guid: adfe8d80ac75a2c489e69bc374495e75, type: 3}
+    m_FontSize: 34
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 3
@@ -6066,8 +6072,8 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1.6
-  m_Text: New Text
+    m_LineSpacing: 1.19
+  m_Text: Alive Info
 --- !u!222 &1250089275
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6171,6 +6177,7 @@ RectTransform:
   - {fileID: 396579207}
   - {fileID: 752291011}
   - {fileID: 298949252}
+  - {fileID: 1250089272}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6550,7 +6557,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 8}
+  m_AnchoredPosition: {x: 0, y: 2.1}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1871475349
@@ -6574,8 +6581,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 2fccf70ac02d0ec47a38d5eaa4eb5ea6, type: 3}
-    m_FontSize: 45
+    m_Font: {fileID: 12800000, guid: adfe8d80ac75a2c489e69bc374495e75, type: 3}
+    m_FontSize: 37
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 10
@@ -6585,7 +6592,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1.3
+    m_LineSpacing: 1.16
   m_Text: 'START
 
     GENERATING'
@@ -7325,6 +7332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67930705a6f8382478aa8a3805302731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TotallNum: 8
 --- !u!222 &5152338653874837059
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7583,8 +7591,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 2fccf70ac02d0ec47a38d5eaa4eb5ea6, type: 3}
-    m_FontSize: 55
+    m_Font: {fileID: 12800000, guid: adfe8d80ac75a2c489e69bc374495e75, type: 3}
+    m_FontSize: 56
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 2
@@ -7595,7 +7603,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 2.3
-  m_Text: "Skill Points Left\uFF1A10"
+  m_Text: "Skill Points Left\uFF1A8"
 --- !u!224 &5152338655198466033
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7612,8 +7620,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -323, y: 520}
-  m_SizeDelta: {x: 520.2, y: 94.84}
+  m_AnchoredPosition: {x: -337.83, y: 541}
+  m_SizeDelta: {x: 583.51, y: 94.84}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5152338655198466035
 CanvasRenderer:

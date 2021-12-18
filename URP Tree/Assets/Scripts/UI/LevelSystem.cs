@@ -9,16 +9,23 @@ public class LevelSystem : MonoBehaviour
     public GameOfPlants GOP;
 
     private int
+        //Max seed period
 
             T0Max = 5,
-            T1Max = 4,
-            T0,
-            T1;
+            //Max young tree period
+            T1Max = 6;
 
-    private float
+    public int
+        //publish seed/young time
+
+            T0,
+            T1,
+            T2;
+
+    public float
 
             NearbyRadiusMin = 2.5f,
-            WaterResistFactorMax,
+            CrowdFactor,
             NearbyRadius,
             WaterResistFactor;
 
@@ -35,22 +42,31 @@ public class LevelSystem : MonoBehaviour
         if (GS < 3)
         {
             T0 = T0Max - GS;
+            T1 = T1Max;
         }
         else if (GS >= 3)
         {
             T0 = T0Max - 3;
-            T1 = T1Max - GS + 2;
+            T1 = T1Max - GS + 1;
         }
 
         //Drought adjust
         int DR = SkillPanel.GetNumByType(SkillType.Drought);
-        if (DR >= 4)
+        WaterResistFactor = 1f - 0.1f * (float) DR;
+        if (DR >= 3)
         {
-            //CrowdFactor = 3f;
+            CrowdFactor = 3f;
+        }
+        else
+        {
+            CrowdFactor = 4f;
         }
 
         //Spread distance
         int DS = SkillPanel.GetNumByType(SkillType.Distance);
         NearbyRadius = NearbyRadiusMin + 0.8f * (float) DS;
+
+        //Duration - Producing round
+        T2 = SkillPanel.GetNumByType(SkillType.Duration) + 2;
     }
 }

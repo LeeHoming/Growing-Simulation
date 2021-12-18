@@ -15,13 +15,12 @@ public class SkillSettingPanel : MonoBehaviour
 {
     List<SkillItem> _skillItem;
 
-    int TotallNum;
+    public int TotallNum = 8;
 
     Text _totallNumTxt;
 
     private void Awake()
     {
-        TotallNum = 10;
         _skillItem =
             new List<SkillItem>(transform.GetComponentsInChildren<SkillItem>());
         foreach (var v in _skillItem) v.Init(this);
@@ -31,7 +30,7 @@ public class SkillSettingPanel : MonoBehaviour
     public bool AlertNum(int num)
     {
         TotallNum += num;
-        if (TotallNum > 10 || TotallNum < 0)
+        if (TotallNum > 8 || TotallNum < 0)
         {
             TotallNum -= num;
             return false;

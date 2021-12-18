@@ -30,12 +30,17 @@ public class PlantCell : MonoBehaviour
     //number of seeding neighbour
     public int ClosestUnit;
 
-    public float CrowdFactor = 5f;
+    public float CrowdFactor = 2f;
+
+    public float DryFactor = 5f;
 
     //number of too close neighbour
     public int CrowdNum;
 
-    public float SeaLevel;
+    public float
+
+            SeaLevel,
+            WaterResistFactor;
 
     public List<Vector2> SeedPlants = new List<Vector2>();
 
@@ -56,6 +61,8 @@ public class PlantCell : MonoBehaviour
                 .Euler(new Vector3(0, UnityEngine.Random.Range(0, 360), 0));
         transform.localScale =
             new Vector3(1.3f, UnityEngine.Random.Range(1.1f, 1.5f), 1.3f);
+
+        //WaterRate = 0.8f * SeaLevel;
     }
 
     private void Start()
@@ -113,7 +120,7 @@ public class PlantCell : MonoBehaviour
         if (PlantStatus == 0)
         {
             //Water is important in seedling age
-            DeadRate = 5f * (WaterRate / 100f);
+            DryFactor = 5f * 0.8f * SeaLevel * WaterResistFactor;
 
             if (inWater)
             {
